@@ -1,6 +1,6 @@
 const Post = require('../models/Post')
 
-const adminLayout = '../views/layouts/main';
+const mainLayout = '../views/layouts/main';
 
 
 const getPosts = async (req,res) => {
@@ -14,7 +14,7 @@ const getPosts = async (req,res) => {
         res.render('Post-crud/dashboard', {
           locals,
           data,
-          layout: adminLayout
+          layout: mainLayout
         });
     
       } catch (error) {
@@ -33,7 +33,7 @@ const addPostView = async (req,res) => {
         const data = await Post.find();
         res.render('Post-crud/add-post', {
           locals,
-          layout: adminLayout
+          layout: mainLayout
         });
     
       } catch (error) {
@@ -49,6 +49,7 @@ const addPost = async (req,res) => {
             body: req.body.body
           });
     
+          
           await Post.create(newPost);
           res.redirect('/dashboard');
         } catch (error) {
