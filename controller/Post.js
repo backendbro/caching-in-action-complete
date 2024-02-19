@@ -50,7 +50,7 @@ const addPost = async (req,res) => {
           });
     
           
-          await Post.create(newPost);
+          const post = await Post.create(newPost);
           res.redirect('/dashboard');
         } catch (error) {
           console.log(error);
