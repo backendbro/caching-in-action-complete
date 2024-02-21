@@ -30,7 +30,7 @@ const addPostView = async (req,res) => {
           description: 'Simple Blog created with NodeJs, Express & MongoDb.'
         }
     
-        const data = await Post.find();
+        
         res.render('Post-crud/add-post', {
           locals,
           layout: mainLayout
